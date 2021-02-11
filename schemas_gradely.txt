@@ -1,0 +1,149 @@
+MODEL/DB FIELDS
+
+### STUDENTS
+id: INT [PKY]
+surname_name: STR
+other_names: STR
+date_of_birth: DATE
+address: STR
+nationality: STR
+state_origin: STR
+student_photo: STR
+guardian_name: STR
+guardian_relation: STR
+guardian_occupation: STR
+guardian_phone: INT 
+guardian_address: STR
+guardian_photo: STR
+admited_session: (FOREIGH KEY [academic_sessions])
+admited_class: (FOREIGN KEY [class])
+admited_date: DATE
+current_class: (FOREIGN KEY [class])
+admited_by: (FOREIGN KEY [users])
+modified_date: DATE
+modified_by: (FOREIGN KEY [users])
+
+
+
+### CLASS
+id: INT [PKY]
+class_name: STR
+class_arm: STR
+created_by: (FOREIGN KEY [users])
+created_date: DATE
+modified_by: (FOREIGN KEY [users])
+modified_date: DATE
+
+
+
+### ACADEMIC_SESSIONS
+id: INT [PKY]
+session_name: STR
+session_start: DATE
+session_end: DATE
+created_by: INT (FOREIGN KEY [user])
+created_date: DATE
+modified_by: (FOREIGN KEY [user])
+modified_date: DATE
+
+
+### TERMS
+id : INT [PKY]
+term_name: STR
+term_start: DATE
+term_end: DATE
+term_session: INT [academic_sessions]
+created_by: INT [user]
+created_date: DATE
+modified_by: INT [user]
+modified_date: DATE
+
+
+### USERS
+id: INT [PKY]
+user_name: STR
+user_pass: STR
+user_names: STR
+user_role: (FOREIGN KEY [role])
+created_by: (FOREIGN KEY [users])
+created_date: DATE
+modified_by: (FOREIGN KEY [users])
+modified_date: DATE
+
+
+### ROLES
+id: INT [PKY]
+role_name: STR
+created_by: (FOREIGN KEY [users])
+created_date: DATE
+modified_by: (FOREIGN KEY [users])
+modified_date: DATE
+
+
+### TEACHERS
+id: INT [PKY]
+teacher_name: STR
+teacher_role: (FOREIGN KEY [roles])
+teacher_class: (FOREIGN KEY [class])
+created_by: (FOREIGN KEY [users])
+created_date: DATE
+modified_by: (FOREIGN KEY [users])
+
+
+### SUBJECTS
+id: INT [PKY]
+subject_name: STR
+subject_class: (FOREIGN KEY [class])
+subject_teacher: (FOREIGN KEY [teachers])
+created_by: (FOREIGN KEY [users])
+created_date: DATE
+modified_by: (FOREIGN KEY [users])
+modified_date: DATE
+
+### RESULTS
+id: INT [PKY]
+result_sesion: (FOREIGN KEY [academic_sessions])
+result_term: (FOREIGN KEY [term])
+result_class: (FOREIGN KEY [class])
+student_result: (FOREIGN KEY [students])
+result_subject: (FOREIGN KEY [subjects])
+test_rating: INT
+assignment_rating: INT
+project_rating: INT
+class_work_rating: INT
+first_test: INT
+first_assignment: INT
+first_class_work: INT
+first_project: INT
+second_assignment: INT
+second_class_work: INT
+second_test: INT
+third_class_work: INT
+third_assignment: INT
+exam_rating: INT
+total_scores_rating: INT
+exam_score: INT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
