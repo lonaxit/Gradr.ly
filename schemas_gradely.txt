@@ -18,7 +18,7 @@ guardian_photo: STR
 admited_session: (FOREIGH KEY [academic_sessions])
 admited_class: (FOREIGN KEY [class])
 admited_date: DATE
-current_class: (FOREIGN KEY [class])
+current_class: (FOREIGN KEY [class]) // Remove this field
 admited_by: (FOREIGN KEY [users])
 modified_date: DATE
 modified_by: (FOREIGN KEY [users])
@@ -83,8 +83,8 @@ modified_date: DATE
 ### TEACHERS
 id: INT [PKY]
 teacher_name: STR
-teacher_role: (FOREIGN KEY [roles])
-teacher_class: (FOREIGN KEY [class])
+teacher_role: (FOREIGN KEY [roles]) //REMOVE FOR NOW
+teacher_class: (FOREIGN KEY [class]) //REMOVE FOR NOW
 created_by: (FOREIGN KEY [users])
 created_date: DATE
 modified_by: (FOREIGN KEY [users])
@@ -102,15 +102,15 @@ modified_date: DATE
 
 ### RESULTS
 id: INT [PKY]
-result_sesion: (FOREIGN KEY [academic_sessions])
-result_term: (FOREIGN KEY [term])
-result_class: (FOREIGN KEY [class])
-student_result: (FOREIGN KEY [students])
-result_subject: (FOREIGN KEY [subjects])
-test_rating: INT
+result_sesion: (FOREIGN KEY [academic_sessions]) //changed to session_id
+result_term: (FOREIGN KEY [term]) //changed to term_id
+result_class: (FOREIGN KEY [class]) //chnaged to class_id
+student_result: (FOREIGN KEY [students]) //changed to student_id
+result_subject: (FOREIGN KEY [subjects]) //Changed to subject_id
+test_rating: INT //? explain usage
 assignment_rating: INT
-project_rating: INT
-class_work_rating: INT
+project_rating: INT //? explain usage
+class_work_rating: INT // explain usage
 first_test: INT
 first_assignment: INT
 first_class_work: INT
@@ -124,16 +124,36 @@ exam_rating: INT
 total_scores_rating: INT
 exam_score: INT
 
+//suggestions on the result table
+//we may have only the fllg
+first_test: float
+second_test:float 
+third_test:float 
+subject_average
+subject_rating 
+
+###################################################3
+LUPER COMMENTS
 
 
+1. for the student model, i suggest we remove the student class from STUDNET MODEL field and create a new model called "STUDENT_CLASS" this will allow students to have history of their classes,based on promotion or otherwise
+
+*** STUDENT_CLASS
+    id: INT (PK)
+    class_id: INT(FK [CLASS])
+    student_id: INT(FK [STUDENT])
+    session_id: INT(FK [SESSION])
+    date_added: DATE
 
 
+*** CLASS_SUBJECTS
+//Model used to add subjects to a class
 
+*** CLASS_TEACHER
+//Model used to add teachers to a class , they will perform actions as a class teacher, may be we can add role as class_teacher
 
-
-
-
-
+*** SUBJECT_TEACHER
+//Model used to add teachers to a subjecct , they will perform actions as a subject teacher, may be we can add role as subject_teacher
 
 
 
