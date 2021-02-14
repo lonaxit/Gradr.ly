@@ -1,0 +1,11 @@
+## Suggestions for the First Tasks
+1. I suggest that we need to do the basic set up  first;
+    a. App Installing and activation
+    b. urls patterns
+    c. Bootstrap Admin Template integration
+2. Database Design then others.
+
+3. Recall we did not include Examinations computation in App Requirement Proposed 
+to form part of the first version, but I am seeing Examinations computation
+forming the basics of the first version. I suggest we follow our initial proposed 
+App requirement doc unless there is a change in our first version of the software.
