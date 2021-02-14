@@ -18,7 +18,6 @@ guardian_photo: STR
 admited_session: (FOREIGH KEY [academic_sessions])
 admited_class: (FOREIGN KEY [class])
 admited_date: DATE
-current_class: (FOREIGN KEY [class])
 admited_by: (FOREIGN KEY [users])
 modified_date: DATE
 modified_by: (FOREIGN KEY [users])
@@ -83,8 +82,6 @@ modified_date: DATE
 ### TEACHERS
 id: INT [PKY]
 teacher_name: STR
-teacher_role: (FOREIGN KEY [roles])
-teacher_class: (FOREIGN KEY [class])
 created_by: (FOREIGN KEY [users])
 created_date: DATE
 modified_by: (FOREIGN KEY [users])
@@ -102,15 +99,15 @@ modified_date: DATE
 
 ### RESULTS
 id: INT [PKY]
-result_sesion: (FOREIGN KEY [academic_sessions])
-result_term: (FOREIGN KEY [term])
-result_class: (FOREIGN KEY [class])
-student_result: (FOREIGN KEY [students])
-result_subject: (FOREIGN KEY [subjects])
-test_rating: INT
-assignment_rating: INT
-project_rating: INT
-class_work_rating: INT
+session_id: (FOREIGN KEY [academic_sessions])
+term_id: (FOREIGN KEY [term])
+class_id: (FOREIGN KEY [class])
+student_id: (FOREIGN KEY [students])
+subject_id: (FOREIGN KEY [subjects])
+test_rating: INT //Total required for 100% score
+assignment_rating: INT //Total required for 100% score
+project_rating: INT //Lifted this item from Secondary School result sheet and don't know the meaning. 
+class_work_rating: INT //Total required for 100% score 
 first_test: INT
 first_assignment: INT
 first_class_work: INT
